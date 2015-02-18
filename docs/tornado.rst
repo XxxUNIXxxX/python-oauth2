@@ -14,7 +14,7 @@ Use Tornado to serve token requests::
     from oauth2.grant import ImplicitGrant
     from oauth2.grant import AuthorizationCodeGrant
     from oauth2.store.memory import ClientStore, AccessTokenStore
-    from base import BaseHandler
+    from base import BaseHandler #  never use
   
     class OAuth2Handler(tornado.web.RequestHandler):
         """
@@ -34,7 +34,7 @@ Use Tornado to serve token requests::
             self._map_response(response)
 
         def _dispatch_request(self):
-            request = Request(request_handler=self)
+            request = Request(request_handler=self) # Request not imported
 
             return self.controller.dispatch(request, environ={})
 
